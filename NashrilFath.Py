@@ -1,0 +1,33 @@
+target_mahasiswa = {
+    "andi": 70,
+    "budi": 75,
+    "citra": 80
+}
+
+print("CEK KELULUSAN UJIAN MATEMATIKA")
+
+nama = input("Nama : ").strip()
+while nama.lower() not in target_mahasiswa:
+    print("Nama tidak ditemukan! Pilih: Andi, Budi, atau Citra.")
+    nama = input("Nama : ").strip()
+
+target = target_mahasiswa[nama.lower()]
+print(f"Target nilai {nama.capitalize()} : {target}")
+
+percobaan = 0
+lulus = False
+
+while percobaan < 3 and not lulus:
+    percobaan += 1
+    nilai = int(input(f"Nilai {percobaan} : "))
+
+    if nilai >= target:
+        lulus = True
+    else:
+        print(f"  -> Nilai {nilai} maaf anda belum mencapai target {target}.")
+
+
+if lulus:
+    print(f"{nama.capitalize()}selamat anda berhasil lulus setelah {percobaan} kali percobaan!")
+else:
+    print(f"{nama.capitalize()} maaf anda tidak lulus setelah {percobaan} kali percobaan!")
